@@ -1,71 +1,178 @@
-# =� FileCoin Store - AI-Powered Decentralized File Storage
+# Predict - AI-Powered Prediction Platform
 
-<div align="center">
+A full-stack application that combines Telegram bot integration, AI analysis, and decentralized file storage to create an intelligent prediction and data management platform.
 
-**Upload files via Telegram, store them on IPFS/Filecoin, search them with AI**
+## Overview
 
-[![Telegram Bot](https://img.shields.io/badge/Telegram-@filecoinstore__bot-blue?logo=telegram)](https://t.me/filecoinstore_bot)
-[![IPFS](https://img.shields.io/badge/Storage-IPFS%2FFilecoin-brightgreen?logo=ipfs)](https://ipfs.io)
-[![AI Powered](https://img.shields.io/badge/AI-Vision%20Analysis-purple?logo=openai)](https://openrouter.ai)
+**Predict** is a modern web application that enables users to interact with AI-powered predictions through multiple interfaces including a web dashboard and Telegram bot. The platform features intelligent file storage, AI-driven analysis, and seamless user profile management.
 
-</div>
+## Architecture
 
----
+The project consists of two main components:
 
-## =� Overview
+- **Backend** (`/backend`): Node.js/Express API server with Telegram bot integration
+- **Client** (`/client`): React-based web dashboard with modern UI
 
-**FileCoin Store** is a decentralized file storage platform that bridges the gap between everyday messaging apps and Web3 storage. Users can upload files directly through Telegram, and files are automatically:
+## Features
 
--  **Stored permanently** on IPFS/Filecoin
--  **Compressed intelligently** to reduce storage costs
--  **Analyzed by AI** for automatic tagging and categorization
--  **Searchable** by content, tags, and AI-generated descriptions
--  **Accessible** via permanent IPFS links
+### 🤖 AI-Powered Analysis
+- Integrated AI analysis service using LangChain and OpenAI
+- Intelligent file processing and categorization
+- Real-time predictions and insights
 
-**Bot Username:** [@filecoinstore_bot](https://t.me/filecoinstore_bot)
+### 📱 Telegram Integration
+- Full-featured Telegram bot interface
+- Seamless user authentication and profile management
+- File upload and management through Telegram
 
----
+### 🗄️ File Storage & Management
+- Decentralized file storage with IPFS integration
+- Intelligent compression service for optimized storage
+- File categorization and searchable metadata
 
-## ( Key Features
+### 🌐 Modern Web Dashboard
+- React-based UI with Tailwind CSS
+- Real-time data visualization with Recharts
+- Responsive design with Radix UI components
+- Blockchain integration with MetaMask SDK and Wagmi
 
-### > AI-Powered Image Analysis
-- **Automatic Description Generation**: AI analyzes uploaded images and generates detailed descriptions
-- **Smart Tagging**: Automatically extracts relevant tags and keywords from images
-- **Category Detection**: Classifies images into categories (e.g., document, portrait, nature, food)
-- **Safety Rating**: Evaluates content safety and confidence levels
-- **Searchable Metadata**: Search files by AI-generated descriptions and tags
+### 🔐 User Management
+- User profile service with persistent storage
+- Multi-platform authentication (Web + Telegram)
+- Secure session management
 
-### =� Intelligent Compression
-- **Automatic Compression**: Files are compressed before IPFS upload using gzip
-- **Smart Detection**: Skips already-compressed formats (JPEG, PNG, MP4, ZIP)
-- **Cost Savings**: Reduces storage costs by up to 70% for compressible files
-- **Transparent Decompression**: Files are automatically decompressed when downloaded
-- **Statistics Tracking**: View compression ratio and storage savings
+## Tech Stack
 
-### =� Telegram Integration
-- **Simple Upload**: Just send any file to [@filecoinstore_bot](https://t.me/filecoinstore_bot)
-- **Instant CID**: Receive IPFS Content Identifier (CID) immediately
-- **Permanent Links**: Get permanent IPFS gateway URLs
-- **Multi-format Support**: Photos, videos, documents, audio files, and more
-- **User-friendly**: No wallet or crypto required to upload
+### Backend
+- **Runtime**: Node.js with TypeScript
+- **Framework**: Express.js
+- **AI/ML**: LangChain, OpenAI
+- **Bot**: node-telegram-bot-api
+- **Storage**: IPFS integration
+- **Utilities**: Axios, UUID, dotenv
 
-### =
- Advanced Search
-- **Multi-field Search**: Search by filename, CID, tags, description, or category
-- **Type Filtering**: Filter by file type (images, videos, documents)
-- **AI-Enhanced**: Leverage AI-generated metadata for semantic search
-- **Real-time**: Instant search results as you type
+### Frontend
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Radix UI, Lucide Icons
+- **State Management**: Zustand
+- **Data Fetching**: TanStack Query, SWR
+- **Blockchain**: Viem, Wagmi, MetaMask SDK
+- **Visualization**: Recharts
+- **Routing**: React Router DOM
 
-### < Web Dashboard
-- **Asset Gallery**: Browse all uploaded files in a beautiful grid layout
-- **AI Insights**: View AI-generated descriptions, tags, and categories
-- **File Preview**: Preview images and download any file type
-- **IPFS Links**: Copy CID or access files via IPFS gateway
-- **Storage Stats**: Track total storage usage and compression savings
+## Getting Started
 
----
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
+- Telegram Bot Token (for bot features)
+- OpenAI API Key (for AI features)
+- IPFS node or gateway access
 
-## <� Architecture
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd predict
+```
+
+2. Install backend dependencies:
+```bash
+cd backend
+npm install
+```
+
+3. Install client dependencies:
+```bash
+cd ../client
+npm install
+```
+
+4. Configure environment variables:
+
+Create a `.env` file in the backend directory:
+```env
+PORT=3002
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+OPENAI_API_KEY=your_openai_api_key
+# Add other required environment variables
+```
+
+### Running the Application
+
+**Development mode:**
+
+Backend:
+```bash
+cd backend
+npm run dev
+```
+
+Client:
+```bash
+cd client
+npm run dev
+```
+
+**Production build:**
+
+Backend:
+```bash
+cd backend
+npm run build
+npm start
+```
+
+Client:
+```bash
+cd client
+npm run build
+npm run preview
+```
+
+## API Endpoints
+
+- `GET /health` - Health check endpoint
+- `/api/telegram/*` - Telegram bot integration endpoints
+- `/api/files/*` - File storage and retrieval endpoints
+- `/api/users/*` - User management endpoints
+
+## Project Structure
 
 ```
-
+predict/
+├── backend/
+│   ├── src/
+│   │   ├── index.ts           # Main server entry point
+│   │   ├── routes/            # API route handlers
+│   │   ├── services/          # Business logic services
+│   │   └── examples/          # Example implementations
+│   └── package.json
+├── client/
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── lib/               # Utility functions
+│   │   ├── utils/             # Helper utilities
+│   │   └── main.tsx           # Client entry point
+│   └── package.json
+└── README.md
+```
+
+## Documentation
+
+Additional documentation files:
+- `TELEGRAM_INTEGRATION.md` - Telegram bot setup and integration guide
+- `FILECOIN_STORE_DOCS.md` - Detailed IPFS/Filecoin storage documentation
+- `COMPRESSION_GUIDE.md` - File compression strategies and implementation
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+ISC
