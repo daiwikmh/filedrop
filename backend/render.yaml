@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: predict-backend
+    runtime: docker
+    repo: https://github.com/yourusername/predict # Update with your repo
+    branch: main
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false # Set manually in Render dashboard
+      - key: PINATA_JWT
+        sync: false # Set manually in Render dashboard
+      - key: PINATA_API_KEY
+        sync: false # Set manually in Render dashboard
+      - key: PINATA_API_SECRET
+        sync: false # Set manually in Render dashboard
+    healthCheckPath: /health
+    autoDeploy: true
+    disk:
+      name: predict-data
+      mountPath: /app/data
+      sizeGB: 1
